@@ -1,8 +1,8 @@
 const url ='https://official-joke-api.appspot.com/random_joke';
 
 fetch(url)
-    .then((x)=>{
-       return x.json();
+    .then((res)=>{
+       return res.json();
     })
     .then((data)=>{
         console.log(data.setup);
