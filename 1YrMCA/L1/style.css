@@ -1,0 +1,15 @@
+#para3, #para2 , #para1, #para4{
+    border: 2px solid green;
+}
+
+#para3{
+    /* padding: 20px; */
+    /* padding: 10px 20px 10px 40px; */
+       padding: 10px 50px;
+    /* margin: 10px; */
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
