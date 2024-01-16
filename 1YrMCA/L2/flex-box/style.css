@@ -1,0 +1,54 @@
+.child{
+    height: 100px;
+    width: 100px;
+    border: 2px solid red;
+}
+#child1{
+    background-color: aquamarine;
+    /* order: 2; */
+}
+#child2{
+    background-color: brown;
+    /* height: 40px;
+    padding: 20px; */
+    /* order: -1; */
+    /* flex-grow: 3; */
+
+    flex-shrink: 2;
+}
+#child3{
+    background-color: chartreuse;
+    /* order: -1; */
+}
+#child4{
+    background-color: burlywood;
+    /* flex-grow: 2; */
+}
+#child5{
+    background-color: darkcyan;
+    /* flex-grow: 4; */
+}
+.container{
+    border:  5px solid black;
+    display: flex;
+    /* flex-direction: row-reverse; */
+    /* flex-direction: column; */
+    /* flex-direction: column-reverse; */
+
+    /* justify-content: flex-end; */
+    /* justify-content: center; */
+    /* justify-content: space-between; */
+    /* justify-content: space-evenly; */
+    /* justify-content: space-around; */
+
+    /* height: 80vh; */
+
+    /* align-items: center; */
+    /* align-items: flex-start; */
+    /* align-items: flex-end; */
+    /* align-items: stretch; */
+    /* align-items: baseline; */
+
+    /* flex-wrap: wrap; */
+    /* flex-wrap: wrap-reverse; */
+}
