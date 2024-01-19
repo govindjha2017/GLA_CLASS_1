@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.navbar{
+    height: 75px;
+    background-color: #FFC017;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+}
+
+.logo{
+    /* height: 30px;
+    border: 2px solid black; */
+    margin-left: 70px;
+}
+
+#logoimg{
+    height: 40px;
+}
+
+.links{
+    margin-right: 75px;
+}
+
+.link{
+    margin-left: 10px;
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+}
+#spcl-link{
+    /* border: 2px solid red; */
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    border-radius: 25px;
+}
+
+.main{
+    height: 455px;
+    background-color: #FFC017;
+    overflow: auto;
+}
+
+.content{
+   height: 200px;
+   width: 300px;
+   border: 2px solid red;
+   margin-top: 100px;
+   margin-left: 100px;
+}
+
+/* .text{
+    border: 2px solid red;
+    height: 200px;
+    width: 200px;
+    overflow: auto;
+} */

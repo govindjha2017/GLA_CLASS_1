@@ -19,10 +19,18 @@ app.get('/cat',(req,res)=>{
 })
 
 app.get('/login/:username/:password',(req,res)=>{
-    console.log(req.params);
-    res.send('ok');
+//    console.log(req.params);
+//    res.send('ok');
+    // const username = req.params.username;
+    const{username,password} = req.params;
+    res.json({username,password});
 })
 
+app.get('/getData',(req,res)=>{
+    console.log(req.query);
+    res.send('ok');
+})
+ 
 app.get('/*',(req,res)=>{
     res.send('404 page not found')
 })

@@ -14,6 +14,9 @@ app.get('/todos',(req,res)=>{
     
     res.render('todo',{todos});
 })
-
+app.get('/payment',(req,res)=>{
+    // res.send('sab theek')
+    res.render('payment');
+})
 
 app.listen(4000);
