@@ -35,6 +35,7 @@ app.get('/user/:id',(req,res)=>{
     res.render('show',{user})
 })
 
+
 app.listen(4000,()=>{
    console.log('server up at port',4000);
 })

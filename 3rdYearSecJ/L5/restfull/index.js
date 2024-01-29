@@ -26,4 +26,13 @@ app.post('/users',(req,res)=>{
    res.redirect('/users')
 })
 
+app.get('/users/:id',(req,res)=>{
+    // console.log(req.params);
+    // const id = req.params.id;
+    const {id}=req.params;
+    let user = users.find((item)=> item.id==id);
+     
+    res.render('show',{user});
+})
+
 app.listen(4000);
