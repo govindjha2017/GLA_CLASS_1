@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            border: 2px solid black;
+            width: 150px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <a href="/user/new">Create new user</a>
+     <div class="container">
+        <%for(let user of users){%>
+            <div class="box">
+                <h2><%=user.username%></h2>
+                <p><%=user.password%></p>
+                <a href="/user/<%=user.id%>">SHOW</a>
+                <a href="/user/<%=user.id%>/edit">Edit</a>
+                 <form action="/users/<%=user.id%>?_method=delete" method="post">
+                    <button>Delete</button>
+                 </form>
+            </div>
+        <%}%>
+     </div>
+</body>
+</html>

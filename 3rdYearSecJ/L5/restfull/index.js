@@ -35,4 +35,15 @@ app.get('/users/:id',(req,res)=>{
     res.render('show',{user});
 })
 
+app.get('/users/:id/edit',(req,res)=>{
+    const {id}= req.params;
+    let user = users.find((item)=> item.id==id);
+     res.render('edit',{user});
+})
+
+app.post('/user/:id/edit',(req,res)=>{
+    const {username,password,city} = req.body;
+
+})
+
 app.listen(4000);
