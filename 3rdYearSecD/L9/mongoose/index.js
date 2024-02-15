@@ -39,5 +39,11 @@ const User = mongoose.model('User',usersschema);
 // User.updateMany({name:'rahul'},{email:'rahul@yahoo.com'})
 //     .then((data)=>{console.log(data)});
 
-User.updateMany({},{age:70})
-    .then((data)=>{console.log(data)});
+// User.updateMany({},{age:70})
+//     .then((data)=>{console.log(data)});
+
+// User.deleteOne({name:'rahul'})
+//     .then((data)=>{console.log(data)});
+
+User.deleteMany({})
+    .then((data)=>{console.log(data)})
