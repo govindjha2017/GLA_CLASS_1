@@ -13,7 +13,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/restfull-J')
 app.get('/',async(req,res)=>{
     const products = await Product.find({});
     console.log(products);
-    res.render('products',products)
+    res.render('products',{products})
 })
 
 app.listen(5000,()=>{
