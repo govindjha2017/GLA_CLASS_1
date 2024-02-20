@@ -58,9 +58,13 @@
                 <div class="card-body">
                   <h5 class="card-title"><%=product.name%></h5>
                   <h3><%=product.rating%></h3>
-                  <h5 class="card-title"><%=product.price%></h5>
+                  <h5 class="card-title">$<%=product.price%></h5>
                   <p class="card-text"><%=product.desc%></p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                  <a href="#" class="btn btn-primary">Cart</a>
+                  <a href="/product/edit/<%=product._id%>" class="btn btn-secondary">Edit</a>
+                  <form action="/product/Delete/<%=product._id%>" method="post">
+                    <button class="btn btn-danger">Delete</button>
+                  </form>
                 </div>
               </div>
 
