@@ -27,6 +27,31 @@ app.post('/product/new',async(req,res)=>{
     res.redirect('/');
 })
 
+app.get('/product/edit/:id',async (req,res)=>{
+    const {id} = req.params;
+    const product = await Product.findOne({_id:id});
+    console.log(product);
+    res.render('edit',{product});
+})
+app.post('/product/edit/:id',async (req,res)=>{
+    const {id} = req.params;
+    const {name,price,rating,image,desc} = req.body;
+     
+    await Product.updateOne({_id:id},{name,price,rating,image,desc});
+    res.redirect('/')
+})
+
+app.post('/product/delete/:id', async (req,res)=>{
+   const {id} = req.params;
+   await Product.deleteOne({_id:id});
+   res.redirect('/')
+})
+
+app.get('/product/:id', async (req,res)=>{
+    const {id} = req.params;
+    const product = await Product.findOne({_id:id});
+    res.render('show',{product})
+})
 app.listen(5000,()=>{
     console.log('server run at port 5000');
 })
