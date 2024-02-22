@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            height: 60vh;
+        
+        }
+        .container{
+            display: flex;
+        }
+        .content{
+            border: 1px solid red;
+            width: 60vw;
+        }
+        #name{
+            font-size: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image">
+            <img src="<%=product.image%>">
+        </div>
+        <div class="content">
+            <h2 id="name"><%=product.name%></h2>
+            <h3>$<%=product.price%></h3>
+            <h4><%=product.rating%></h4>
+        </div>
+    </div>
+</body>
+</html>

@@ -61,6 +61,11 @@
                   <p class="card-text"><%=product.desc%></p>
                   <a href="#" class="btn btn-primary">Cart</a>
                   <a href="/product/edit/<%=product._id%>" class="btn btn-secondary">Edit</a>
+                  <a href="/product/show/<%=product._id%>" class="btn btn-warning">Show</a>
+
+                  <form action="/product/delete/<%=product._id%>" method="post">
+                    <button  class="btn btn-danger">Delete</button>
+                  </form>
                 </div>
               </div>
         <%}%>
