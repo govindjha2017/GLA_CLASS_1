@@ -1,0 +1,18 @@
+<% layout('layout/boilerplate.ejs') %>
+
+<div class="row">
+    <div class="col-lg-6 col-12">
+        <div class="card" style="width: 18rem;">
+            <img src="<%=product.image%>" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><%=product.name%></h5>
+              <h5 class="card-title"><%=product.price%></h5>
+              <p class="card-text"><%=product.desc%></p>
+              <a href="/products/<%=product._id%>" class="btn btn-primary">Show</a>
+            </div>
+          </div>
+    </div>
+    <div class="col-lg-6 col-12">
+        <h1>All reviews</h1>
+    </div>
+</div>
