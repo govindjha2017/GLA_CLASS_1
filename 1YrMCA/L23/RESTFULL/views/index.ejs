@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            border: 1px solid red;
+            width: 150px;
+            margin: auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+       <% for(let user of users){ %>
+        <div class="box">
+            <h3><%= user.username%></h3>
+            <p><%= user.password%></p>
+            <p><%= user.city%></p>
+        </div>
+       <% } %>
+    </div>
+</body>
+</html>
