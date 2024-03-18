@@ -8,18 +8,20 @@
         .box{
             border: 1px solid red;
             width: 150px;
-            margin: auto;
+            /* margin: auto; */
             text-align: center;
         }
     </style>
 </head>
 <body>
+    <a href="/user/new">Add new user</a>
     <div class="container">
        <% for(let user of users){ %>
         <div class="box">
             <h3><%= user.username%></h3>
             <p><%= user.password%></p>
             <p><%= user.city%></p>
+            <a href="/users/<%=user.id%>/edit">Edit</a>
         </div>
        <% } %>
     </div>
