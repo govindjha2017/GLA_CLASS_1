@@ -26,7 +26,7 @@ const reviewRoutes = require('./routes/review');
 app.use(productRoutes);
 app.use(reviewRoutes);
 
-const PORT = 5000;
+const PORT =4000;
 app.listen(PORT,()=>{
     console.log('server run at port',PORT);
 })
