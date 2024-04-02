@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const session = require('express-session');
 const User = require('./model/user')
+const bcrypt = require('bcrypt');
 
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://127.0.0.1:27017/auth-G')
@@ -12,7 +13,10 @@ app.use(express.urlencoded({extended:true}))
 app.use(session({
     secret: 'keyboard cat',
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: true,
+    cookie:{
+        maxAge: 1*60*1000
+    }
   }))
 
 let islogedin = (req,res,next)=>{
@@ -39,7 +43,8 @@ app.post('/signup',async (req,res)=>{
         res.redirect('/signup')
     }
     else{
-       await User.create({username,password,email})
+        let hashPassword =  await bcrypt.hash(password, 10)
+       await User.create({username,password:hashPassword,email})
        res.redirect('/login')
     }
 })
@@ -53,6 +58,7 @@ app.post('/login',async (req,res)=>{
     const {username,password} = req.body;
     let user =  await User.findOne({username})
     if(user && user.password===password){
+       
         req.session.username = username
         res.redirect('/')
     }
@@ -60,6 +66,8 @@ app.post('/login',async (req,res)=>{
         res.redirect('/login')
     }
 })
+
+
 
 app.post('/logout',(req,res)=>{
     req.session.destroy();
