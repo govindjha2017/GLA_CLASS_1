@@ -1,0 +1,17 @@
+<% layout('layout/boilerplate.ejs') %>
+
+<div class="product-list d-flex flex-wrap justify-content-center gap-4 mt-3">
+    <%for(let product of products){%>
+        <div class="card" style="width: 18rem;">
+            <img src="<%=product.image%>" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><%=product.name%></h5>
+              <h5 class="card-title"><%=product.price%></h5>
+              <p class="card-text"><%=product.desc%></p>
+              <a href="#" class="btn btn-primary">SHOW</a>
+              <a href="/product/edit" class="btn btn-warning">Edit</a>
+              <a href="#" class="btn btn-danger">Delete</a>
+            </div>
+          </div>
+    <%}%>
+</div>

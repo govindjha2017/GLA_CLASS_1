@@ -1,0 +1,21 @@
+<% layout('layout/boilerplate.ejs') %>
+
+<form action="/products" method="post">
+    <div class="mb-3">
+      <label for="name" class="form-label">name</label>
+      <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp">
+     </div>
+    <div class="mb-3">
+      <label for="image" class="form-label">image</label>
+      <input type="text" class="form-control" id="image" name="image">
+    </div>
+    <div class="mb-3">
+        <label for="price" class="form-label">price</label>
+        <input type="number" class="form-control" id="price" name="price" aria-describedby="emailHelp">
+       </div>
+      <div class="mb-3">
+        <label for="desc" class="form-label">desc</label>
+        <input type="text" class="form-control" id="desc" name="desc">
+      </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>

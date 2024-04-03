@@ -57,10 +57,15 @@ app.get('/login',(req,res)=>{
 app.post('/login',async (req,res)=>{
     const {username,password} = req.body;
     let user =  await User.findOne({username})
-    if(user && user.password===password){
-       
-        req.session.username = username
-        res.redirect('/')
+    if(user){
+        let check = await bcrypt.compare(password, user.password)
+        if(check){
+            req.session.username = username
+            res.redirect('/')
+        }
+        else{
+            res.redirect('/login')
+        }
     }
     else{
         res.redirect('/login')
