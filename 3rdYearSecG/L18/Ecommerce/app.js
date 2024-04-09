@@ -6,7 +6,8 @@ const mongoose = require('mongoose');
 const User = require('./models/user');
 const passport = require('passport');
 const LocalStrategy = require('passport-local')
-const session = require('express-session')
+const session = require('express-session');
+const flash = require('connect-flash');
 
 mongoose.connect('mongodb://127.0.0.1:27017/E-com-G')
     .then(()=>{console.log('DB conected!')})
@@ -24,6 +25,13 @@ app.engine('ejs',ejsMate);
 
 app.use(express.static(path.join(__dirname,'public')))
 app.use(express.urlencoded({extended:true}));
+app.use(flash());
+
+app.use((req,res,next)=>{
+    // res.locals.user = req.user;
+    res.locals.success = req.flash('success');
+    next()
+})
 
 app.use(passport.initialize());
 app.use(passport.session());

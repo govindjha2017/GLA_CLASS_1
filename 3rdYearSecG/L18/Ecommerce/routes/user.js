@@ -11,6 +11,7 @@ router.post('/signup',async (req,res)=>{
     const {username,password,email,role} = req.body;
     let newUser = new User({username,email,role});
     await User.register(newUser,password)
+    console.log(req.user);
     res.redirect('/login')
 })
 
@@ -20,8 +21,17 @@ router.get('/login',(req,res)=>{
 
 router.post('/login', 
   passport.authenticate('local', { failureRedirect: '/login' }),
+  
   function(req, res) {
+    
     res.redirect('/products');
   });
+
+router.get('/logout', function(req, res, next) {
+  req.logout(function(err) {
+    if (err) { return next(err); }
+    res.redirect('/');
+  });
+});
 
 module.exports = router;
