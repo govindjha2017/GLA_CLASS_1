@@ -1,0 +1,18 @@
+.card img{
+    height: 250px;
+}
+
+.navbar{
+    background-color: #ADD8E6 !important;
+}
+.signup-form{
+ width: 50%;
+ /* border: 2px solid red; */
+ margin: auto;
+}
+
+.login-form{
+    width: 50%;
+    /* border: 2px solid red; */
+    margin: auto;
+}

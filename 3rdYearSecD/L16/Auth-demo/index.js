@@ -11,8 +11,10 @@ app.use(express.urlencoded({extended:true}));
 app.use(session({
     secret: 'keyboard cat',
     resave: false,
-    saveUninitialized: true
-    // cookie: { secure: true }
+    saveUninitialized: true,
+    cookie:{
+        maxAge: 1*60*1000
+    }
   }))
 
 mongoose.connect('mongodb://127.0.0.1:27017/auth-D')
@@ -27,9 +29,9 @@ mongoose.connect('mongodb://127.0.0.1:27017/auth-D')
       }
   }
 
-  app.get('/',isloggedin,(req,res)=>{
-     res.render('home')
-  })
+app.get('/',isloggedin,(req,res)=>{
+    res.render('home')
+})
 
 app.get('/signup',(req,res)=>{
     res.render('signup')
@@ -37,8 +39,9 @@ app.get('/signup',(req,res)=>{
 
 app.post('/signup',async(req,res)=>{
     const {username,password,email} = req.body;
-    const existingUser = User.findOne({username})
+    const existingUser =await User.findOne({username})
     if(existingUser){
+        console.log(existingUser)
         res.redirect('/signup')
     }
     else{
@@ -55,7 +58,7 @@ app.get('/login',(req,res)=>{
 
 app.post('/login',async(req,res)=>{
     const {username,password} = req.body;
-    const user = User.findOne({username})
+    const user =await User.findOne({username})
     if(user){
        let check = await bcrypt.compare(password,user.password)
        if(check){
@@ -69,6 +72,11 @@ app.post('/login',async(req,res)=>{
     else{
         res.redirect('/signup')
     }
+});
+
+app.post('/logout',(req,res)=>{
+    req.session.destroy();
+    res.redirect('/login')
 })
 
 app.listen(4000,()=>{
