@@ -1,10 +1,10 @@
-<% layout('./layout/boilerplate.ejs') %>
+<% layout('layout/boilerplate.ejs') %>
 
-<div class="signup-form">
+<div class="signup">
     <form action="/signup" method="post">
         <div class="mb-3">
-            <label for="usernaame" class="form-label">Username</label>
-            <input type="text" class="form-control" id="usernaame" name="username">
+            <label for="Username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="Username" name="username">
           </div>
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Email address</label>
@@ -15,11 +15,12 @@
           <input type="text" class="form-control" id="exampleInputPassword1" name="password">
         </div>
         <div class="mb-3">
+            Role
             <select class="form-select" aria-label="Default select example" name="role">
                 <option selected value="Buyer">Buyer</option>
                 <option value="Seller">Seller</option>
-            </select>
-        </div>
-        <button type="submit" class="btn btn-primary">signup</button>
+             </select>
+         </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
       </form>
 </div>
