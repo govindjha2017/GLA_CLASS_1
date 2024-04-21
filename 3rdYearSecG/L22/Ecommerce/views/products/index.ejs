@@ -1,8 +1,7 @@
 <% layout('layout/boilerplate.ejs') %>
 <%if(success && success.length){%>
-     <%=success%>
+    <%- include('../partials/flash') %>
 <%}%>
-
 <div class="product-list d-flex flex-wrap justify-content-center gap-4">
     <%for(let product of products){%>
         <div class="card" style="width: 18rem;">
@@ -12,6 +11,7 @@
               <h5 class="card-title"><%=product.price%></h5>
               <p class="card-text"><%=product.desc%></p>
               <a href="/products/<%=product._id%>" class="btn btn-primary">Show</a>
+              <a href="/products/<%=product._id%>/delete" class="btn btn-danger">Delete</a>
             </div>
           </div>
     <%}%>

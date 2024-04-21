@@ -14,6 +14,7 @@ router.get('/product/new',(req,res)=>{
 router.post('/products',validateProduct,async(req,res)=>{
    const {name,image,price,desc} = req.body;
    await Product.create({name,image,price,desc});
+   req.flash('success','Product created Succesfully')
    res.redirect('/products')
 })
 
