@@ -1,0 +1,32 @@
+<% layout('layout/boilerplate.ejs') %>
+<%if(success && success.length){%>
+    <%- include('../partials/flash') %>
+<%}%>
+<div class="row">
+    <div class="col-8" style="border: 2px solid red;">
+        <%for(let cartItem of user.cart){%>
+            <div class="row  mb-3 mx-auto" style="border: 1px solid green; width: 90%;">
+               <div class="col-4">
+                <img src="<%=cartItem.productId.image%>" class="img-fluid" alt="...">
+               </div>
+               <div class="col-8">
+                <div class="card-body">
+                    <h5 class="card-title"><%=cartItem.productId.name%></h5>
+                    <h5 class="card-title">$<%=cartItem.productId.price%></h5>
+                    <p class="card-text"><%=cartItem.productId.desc%></p>
+                   <form class="d-inline-block" action="/user/<%=cartItem.productId._id%>/add" method="post">
+                    <button class="btn btn-primary">+</button>
+                   </form>
+                   <span><b><%= cartItem.quantity %></b></span>
+                   <form class="d-inline-block" action="/user/<%=cartItem.productId._id%>/remove" method="post">
+                    <button class="btn btn-primary">-</button>
+                   </form>
+                  </div>
+               </div>
+            </div>
+       <% } %>
+    </div>
+    <div class="col-4">
+
+    </div>
+</div>

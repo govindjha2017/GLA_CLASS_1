@@ -1,0 +1,32 @@
+<% layout('layout/boilerplate.ejs') %>
+
+<div class="row">
+  <div class="col-8"  >
+    <%for(let cartitem of user.cart){ %>
+         <div class="row mb-4"  >
+            <div class="col-4"  ">
+                <img src="<%=cartitem.productId.image%>" class="img-fluid" alt="...">
+
+            </div>
+            <div class="col-8" ">
+                <div class="card-body">
+                    <h5 class="card-title"><%=cartitem.productId.name%></h5>
+                    <h5 class="card-title">$<%=cartitem.productId.price%></h5>
+                    <p class="card-text"><h5 class="card-title"><%=cartitem.productId.desc%></h5></p>
+                    <form class="d-inline-block" action="/user/cart/<%=cartitem.productId._id%>/add" method="post">
+                        <button class="btn btn-primary">+</button>
+                    </form>
+                    <span><b style="font-size: 1.2em;"><%=cartitem.quantity%></b></span>
+                    <form class="d-inline-block" action="/user/cart/<%=cartitem.productId._id%>/remove" method="post">
+                        <button class="btn btn-primary">-</button>
+                    </form>
+                  </div>
+            </div>
+         </div>
+         
+   <% } %>
+  </div>
+  <div class="col-4">
+
+  </div>
+</div>
