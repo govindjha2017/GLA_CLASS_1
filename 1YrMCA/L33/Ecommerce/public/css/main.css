@@ -1,0 +1,21 @@
+.card-img-top{
+    height: 200px;
+}
+
+#navbar{
+    background-color: #ADD8E6 !important;
+    
+}
+.newProductForm{
+    /* border: 2px solid red; */
+    width: 50%;
+    margin: auto;
+}
+.main{
+    margin-top: 20px;
+}
+
+.signup-form{
+    width: 50vw;
+    margin: auto;
+}
